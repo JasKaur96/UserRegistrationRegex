@@ -23,7 +23,7 @@ let validation = function(){
 
      //To check if email is valid or not.
      var email = prompt("Enter Email :");
-     let emailReg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
+     let emailReg = /^[a-zA-Z0-9_.]+@[a-zA-Z.a-zA-Z{2,}.a-zA-Z{2,}]+$/.test(email);
      if(emailReg == true){
          console.log("Validated Email.");
      }
