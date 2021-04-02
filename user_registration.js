@@ -40,6 +40,16 @@ let validation = function(){
      else {
          console.log("Mobile No. is incorrect!");
      }
+
+      //To check if password is valid or not with min 8 char.
+      var pswd = prompt("Enter Password :");
+      let password = /^[A-Za-z]{8,}$/.test(pswd);
+      if(password == true){
+          console.log("Validated Password.");
+      }
+      else {
+          console.log("Password is incorrect!");
+      }
 }
 
 validation();
