@@ -41,9 +41,10 @@ let validation = function(){
          console.log("Mobile No. is incorrect!");
      }
 
-      //To check if password is valid or not with min 8 char and at least 1 uppercase.
+      /*To check if password is valid or not with min 8 char, at least 1 uppercase
+        and atleast 1 numeric value.*/
       var pswd = prompt("Enter Password :");
-      let password = /(?=.*[A-Z])[A-Za-z]{8,}$/.test(pswd);
+      let password = /(?=.*[A-Z])[A-Z a-z 0-9]{8,}$/.test(pswd);
       if(password == true){
           console.log("Validated Password.");
       }
