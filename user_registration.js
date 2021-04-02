@@ -30,6 +30,16 @@ let validation = function(){
      else {
          console.log("Email is incorrect!");
      }
+
+    //To check if mobile number is valid or not.
+     var mobile = prompt("Enter Mobile No. :");
+     let mobileReg = /^[9][1][ ][6-9]{1}[0-9]{9}$/.test(mobile);
+     if(mobileReg == true){
+         console.log("Validated Mobile No..");
+     }
+     else {
+         console.log("Mobile No. is incorrect!");
+     }
 }
 
 validation();
