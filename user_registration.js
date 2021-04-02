@@ -42,9 +42,9 @@ let validation = function(){
      }
 
       /*To check if password is valid or not with min 8 char, at least 1 uppercase
-        and atleast 1 numeric value.*/
+        atleast 1 numeric value and exact 1 special char.*/
       var pswd = prompt("Enter Password :");
-      let password = /(?=.*[A-Z])[A-Z a-z 0-9]{8,}$/.test(pswd);
+      let password = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#&$]).{8,}$/.test(pswd);
       if(password == true){
           console.log("Validated Password.");
       }
