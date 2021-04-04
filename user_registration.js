@@ -1,18 +1,39 @@
 const prompt = require('prompt-sync')({sigint: true}); 
+var regPattern;
+let namePattern = "^[A-Z]{1}[a-z]{3,}";
+let emailReg = "^[a-zA-Z0-9_.]+@[a-zA-Z.a-zA-Z{2,}.a-zA-Z{2,}]+$";
+let mobileReg = "^[9][1][ ][6-9]{1}[0-9]{9}$";
+let passwordReg = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#&$]).{8,}$";
 
-let validation = function(){
-    //To check if first name starts with Capital and has min 3 characters.
-    var fname = prompt("Enter First Name :");
-    let firstName = /^[A-Z]{1}[a-z]{3,}/.test(fname);
-    if(firstName == true){
-        console.log("Validated First Name.");
+validation = function(data,pattern){
+    regPattern = new RegExp(pattern);
+    result = regPattern.test(data);
+    if(result == true){
+        console.log("Validated.");
     }
     else {
-        console.log("Name is incorrect!");
+        console.log("Please enter correct format!");
+        return false;
     }
 }
 
-validation();
+let getData = function(string, pattern){
+    let readData = prompt(string);
+    let result = validation(readData,pattern);
+  
+    while(result == false){
+        if(result == true){
+            return true; 
+        }
+        else{
+            let readData = prompt(string);
+            let result = validation(readData,pattern);
+            return result;
+        }
+       
+    }
+}
 
+getData('Enter the first name:',namePattern);
 
 
