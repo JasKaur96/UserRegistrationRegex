@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "prompt-sync": "^4.2.0"
+  },
+  "name": "userregistration",
+  "description": "",
+  "version": "1.0.0",
+  "main": "user_registration.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasKaur96/UserRegistrationRegex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasKaur96/UserRegistrationRegex/issues"
+  },
+  "homepage": "https://github.com/JasKaur96/UserRegistrationRegex#readme"
+}
