@@ -4,12 +4,14 @@ let namePattern = "^[A-Z]{1}[a-z]{3,}";
 let emailReg = "^[a-zA-Z0-9_.]+@[a-zA-Z.a-zA-Z{2,}.a-zA-Z{2,}]+$";
 let mobileReg = "^[9][1][ ][6-9]{1}[0-9]{9}$";
 let passwordReg = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#&$]).{8,}$";
-
+var readArr=[];
+let length = readArr.length;
 validation = function(data,pattern){
     regPattern = new RegExp(pattern);
     result = regPattern.test(data);
     if(result == true){
-        console.log("Validated.");
+       console.log("Validated.");
+       return true;
     }
     else {
         console.log("Please enter correct format!");
@@ -17,21 +19,31 @@ validation = function(data,pattern){
     }
 }
 
-
 let getData = function(string, pattern){
     let readData = prompt(string);
     let result = validation(readData,pattern);
-  
-    while(result == false){
+    if(result == true){
+        read(readData)
+        length++;
+        return readData;
+    }
+    while(result == false){       
+        let readData = prompt(string);
+        let result = validation(readData,pattern);
+        read(readData);
         if(result == true){
-            return true; 
-        }
-        else{
-            let readData = prompt(string);
-            let result = validation(readData,pattern);
-            return result;
-        }
-       
+            break;
+        }            
+    }
+}
+
+let read = function(data){
+    readArr.push(data);
+}
+let printData = function(){
+    console.log("\n\n*******UserDetails*******");
+    for(let i=0; i<length; i++){
+        console.log(readArr[i]);
     }
 }
 
@@ -40,6 +52,9 @@ getData('Enter the last name:',namePattern);
 getData('Enter the mobile no.:',mobileReg);
 getData('Enter the email:',emailReg);
 getData('Enter the password:',passwordReg);
+printData();
+
+
 
 
 // },
